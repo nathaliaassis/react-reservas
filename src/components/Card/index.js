@@ -11,7 +11,6 @@ export default function TripCard(props) {
             <S.BtnReservar type='button' onClick={props.btnFunction}>
                 {props.btnName}
             </S.BtnReservar>
-
         </S.Card>
     );
 

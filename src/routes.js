@@ -6,8 +6,8 @@ import Reservas from './pages/Reservas'
 export default function Routes() {
     return (
         <Switch>
-            <Route path='/' component={Home} exact/>
-            <Route path='/Reservas' component={Reservas} />
+            <Route path='/' component={Home} exact />
+            <Route path='/reservas' component={Reservas} />
         </Switch>
     )
 }
