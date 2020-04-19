@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import api from '../../services/api';
 
 import { Container } from './styles';
 import TripCard from '../../components/Card';
 
 export default function Home() {
+    const dispatch = useDispatch();
+
     const [trips, setTrips] = useState([]);
 
     useEffect(() => {
@@ -16,6 +19,13 @@ export default function Home() {
         loadApi();
     }, []);
 
+    function handleAdd(trip) {
+        dispatch({
+            type: 'ADD_RESERVE',
+            trip
+        })
+    }
+
     return (
         <Container>
             {trips.map(trip => (
@@ -25,7 +35,7 @@ export default function Home() {
                     title={trip.title}
                     status={trip.status}
                     btnName='Solicitar reserva'
-                    btnFunction={() => { }}
+                    btnFunction={() => handleAdd()}
                 />
             ))}
         </Container>
