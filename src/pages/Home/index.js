@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../services/api';
 
+import * as S from './styles';
+
 export default function Home() {
     const [trips, setTrips] = useState([]);
 
@@ -14,8 +16,19 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
-            home
-        </div>
+        <S.Container>
+            {trips.map(trip => (
+                <S.Card key={trip.id}>
+                    <img src={trip.image} alt={trip.title} />
+                    <strong>{trip.title}</strong>
+                    <S.Status>
+                        Status: {trip.status ? 'Disponível' : 'Indisponível'}
+                    </S.Status>
+                    <S.BtnReservar onClick={() => {}}>
+                        Solicitar Reserva
+                    </S.BtnReservar>
+                </S.Card>
+            ))}
+        </S.Container>
     )
 }
