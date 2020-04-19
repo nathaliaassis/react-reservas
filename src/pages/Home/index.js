@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../services/api';
 
-import * as S from './styles';
-import { Card } from '../../components/Card/styles';
+import { Container } from './styles';
+import TripCard from '../../components/Card';
 
 export default function Home() {
     const [trips, setTrips] = useState([]);
@@ -17,19 +17,17 @@ export default function Home() {
     }, []);
 
     return (
-        <S.Container>
+        <Container>
             {trips.map(trip => (
-                <Card key={trip.id}>
-                    <img src={trip.image} alt={trip.title} />
-                    <strong>{trip.title}</strong>
-                    <S.Status>
-                        Status: {trip.status ? 'Disponível' : 'Indisponível'}
-                    </S.Status>
-                    <S.BtnReservar onClick={() => { }}>
-                        Solicitar Reserva
-                    </S.BtnReservar>
-                </Card>
+                <TripCard
+                    key={trip.id}
+                    image={trip.image}
+                    title={trip.title}
+                    status={trip.status}
+                    btnName='Solicitar reserva'
+                    btnFunction={() => { }}
+                />
             ))}
-        </S.Container>
+        </Container>
     )
 }
