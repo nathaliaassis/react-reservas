@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { addReserve } from '../../store/modules/reserve/actions';
+import { addReserveRequest } from '../../store/modules/reserve/actions';
 import api from '../../services/api';
 
 import { Container } from './styles';
@@ -18,8 +18,8 @@ export default function Home() {
         loadApi();
     }, []);
 
-    function handleAdd(trip) {
-        dispatch(addReserve(trip));
+    function handleAdd(id) {
+        dispatch(addReserveRequest(id));
     }
 
 
@@ -32,7 +32,7 @@ export default function Home() {
                     title={trip.title}
                     status={trip.status ? 'Disponível' : 'Indisponível'}
                     btnName='Solicitar reserva'
-                    onClick={() => handleAdd(trip)}
+                    onClick={() => handleAdd(trip.id)}
                 />
             ))}
         </Container>
