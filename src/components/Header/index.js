@@ -10,14 +10,16 @@ export default function Header() {
 
     return (
         <S.Container>
-            <img src={Logo} alt='Logo do projeto' className='logo' />
+            <Link to='/'>
+                <img src={Logo} alt='Logo do projeto' className='logo' />
+            </Link>
 
             <Link to='/reservas' className='reserva'>
                 <strong>Minhas reservas:</strong>
                 <span>
-                    { reserveQnt === 1 ? 
+                    {reserveQnt === 1 ?
                         `${reserveQnt} reserva` :
-                        `${reserveQnt} reservas` 
+                        `${reserveQnt} reservas`
                     }
                 </span>
             </Link>

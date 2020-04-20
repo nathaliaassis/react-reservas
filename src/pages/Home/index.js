@@ -7,12 +7,10 @@ import TripCard from '../../components/Card';
 
 export default function Home() {
     const dispatch = useDispatch();
-
     const [trips, setTrips] = useState([]);
 
     useEffect(() => {
         async function loadApi() {
-
             const res = await api.get('trips');
             setTrips(res.data);
         }
@@ -23,7 +21,7 @@ export default function Home() {
         dispatch({
             type: 'ADD_RESERVE',
             trip
-        })
+        });
     }
 
     return (
@@ -33,9 +31,9 @@ export default function Home() {
                     key={trip.id}
                     image={trip.image}
                     title={trip.title}
-                    status={trip.status}
+                    status={trip.status ? 'Disponível' : 'Indisponível'}
                     btnName='Solicitar reserva'
-                    btnFunction={() => handleAdd()}
+                    onClick={() => handleAdd(trip)}
                 />
             ))}
         </Container>

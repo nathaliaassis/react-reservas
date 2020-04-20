@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import api from '../../services/api';
+import React from 'react'
+import { useSelector } from 'react-redux';
+import { MdDelete } from 'react-icons/md';
 
-import { Container } from './styles';
-import TripCard from '../../components/Card';
+import * as S from './styles';
 
 export default function Reservas() {
-
+    const reserves = useSelector(state => state.reserve);
+    console.log('result', reserves);
     return (
-        <Container>
-            <TripCard
-                title='Promoção para Brasília'
-                status='Disponível'
-                btnName='Solicitar reserva'
-                btnFunction={() => { }}
-            />
-        </Container>
+        <S.Container>
+            <h2>Você solicitou: {reserves.length} reservas</h2>
+            {reserves.map(reserve => (
+                <S.Card className='card'>
+                    <img src={reserve.image} alt={reserve.title} />
+                    <strong>{reserve.title}</strong>
+                    <S.Qtd>Quantidade: {reserve.amount}</S.Qtd>
+                    <MdDelete size={20} color='#191919' />
+                </S.Card>
+            ))
+            }
+            <S.BtnReservar type='button' onClick={() => { }}>
+                Solicitar reservas
+            </S.BtnReservar>
+        </S.Container>
     )
 }

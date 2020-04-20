@@ -38,4 +38,5 @@ export const BtnReservar = styled.button`
     font-size: 14px;
     letter-spacing: 1.2px;
     margin-top: auto;
+    cursor: pointer;
 `;
