@@ -18,6 +18,7 @@ export const Card = styled.div`
     align-items: center;
     justify-content: space-between;
     flex: 1;
+    flex-wrap: wrap;
     min-width: 230px;
     padding: 16px;
     border-radius: 7px;
@@ -27,6 +28,14 @@ export const Card = styled.div`
     img{
         width: 230px;
         border-radius: 5px;
+    }
+
+    .remove{
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        cursor: pointer;
     }
 `;
 
@@ -48,7 +57,6 @@ export const BtnReservar = styled.button`
     font-size: 14px;
     letter-spacing: 1.2px;
     width: 200px;
-    margin-top: 16px;
     margin-right: auto;
     cursor: pointer;
 `;
