@@ -22,6 +22,7 @@ export default function Home() {
         dispatch(addReserve(trip));
     }
 
+
     return (
         <Container>
             {trips.map(trip => (

@@ -29,6 +29,11 @@ export const Card = styled.div`
         width: 230px;
         border-radius: 5px;
     }
+    .box-qnt{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .remove{
         background: transparent;
@@ -43,6 +48,7 @@ export const Qtd = styled.span`
     font-size: 18px;
     font-weight: 300;
     color: #313131;
+    padding: 0 8px;
 `;
 export const BtnReservar = styled.button`
     display: flex;
