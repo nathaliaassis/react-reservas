@@ -1,6 +1,7 @@
 import { call, put, all, takeLatest, select } from 'redux-saga/effects';
 import { addReserveSuccess, updateAmountSuccess } from './actions';
 import api from '../../../services/api';
+import history from '../../../services/history';
 
 function* addToReserve({ id }) {
 
@@ -30,6 +31,7 @@ function* addToReserve({ id }) {
             amount: 1,
         }
         yield put(addReserveSuccess(data))
+        history.push('/reservas');
     }
 }
 
