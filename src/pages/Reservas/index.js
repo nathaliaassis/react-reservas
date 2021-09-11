@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeReserve, updateAmountRequest } from '../../store/modules/reserve/actions';
 import { MdDelete, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
 
@@ -49,8 +50,10 @@ export default function Reservas() {
                 </S.Card>
             ))
             }
-            <S.BtnReservar type='button' onClick={() => { }}>
-                Solicitar reservas
+            <S.BtnReservar type='button'>
+                <Link to="/">
+                    Solicitar reservas
+                </Link>
             </S.BtnReservar>
         </S.Container>
     )
